@@ -11,32 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: 'form-control'  %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="form-group">
+    <%= form.label :description, class: "form-label"  %>
+    <%= form.text_area :description, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :published %>
-    <%= form.check_box :published %>
-  </div>
-
-  <div class="field">
-    <%= form.label :published_at %>
-    <%= form.datetime_select :published_at %>
-  </div>
-
-  <div class="field">
-    <%= form.label :author_id %>
-    <%= form.text_field :author_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mt-2">
+    <%= form.submit class: 'btn btn-primary col-12'  %>
   </div>
 <% end %>
