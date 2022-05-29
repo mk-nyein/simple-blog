@@ -8,4 +8,23 @@
       </div>
     </div>
   </div>
+  <div class="col-md-9">
+    <div class="mb-3">
+      <%= form_with model: [@post, @element] do |form| %>
+        <%= form.hidden_field "element_type", value: 'paragraph' %>
+        <%= form.submit 'Paragraph', class: 'btn btn-primary' %>
+      <% end %>
+      <% @post.elements.each do |element| %>
+        <% if element.persisted? %>
+          <%= form_with model: [@post, element] do |form| %>
+            <%= form.text_area :element_type %>
+            <%= form.submit 'Save', class: 'btn btn-dark' %>
+            <%= link_to 'Destroy', post_element_path(@post,element), class: 'btn btn-danger', data: {
+              confirm: 'Are you sure?', method: :delete
+            } %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

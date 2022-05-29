@@ -14,6 +14,7 @@ module Authors
 
     # GET /posts/1/edit
     def edit
+      @element = @post.elements.build
     end
 
     # POST /posts

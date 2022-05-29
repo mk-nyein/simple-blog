@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'home/index'
   
   scope module: 'authors' do
-    resources :posts
+    resources :posts do
+      resources :elements
+    end
   end
   
   root to: "home#index"
