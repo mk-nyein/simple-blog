@@ -3,8 +3,15 @@
     <%= link_to 'Back', posts_path, class: 'btn btn-secondary mb-3' %>
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Editing Post</h4>
+        <h6 class="card-title mb-0">Editing Post</h6>
         <%= render 'form', post: @post %>
+      </div>
+      <div class="card-footer">
+        <% if @post.published? %>
+          <a href="#" class="btn btn-dark col-12">Unpublish</a>
+        <% else %>
+          <a href="#" class="btn btn-primary col-12">Publish</a>
+        <% end %>
       </div>
     </div>
   </div>
