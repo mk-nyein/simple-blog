@@ -32,7 +32,7 @@ document.addEventListener('turbolinks:load', () => {
   document.addEventListener('click', () => {
     if (!event.target.matches('.cancel')) return;
 
-    event.preventDefault();
+    // event.preventDefault();
 
     let element = event.target.closest('.paragraph-form')
 
