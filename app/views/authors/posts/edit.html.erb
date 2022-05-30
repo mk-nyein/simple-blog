@@ -2,15 +2,21 @@
   <div class="col-md-3">
     <%= link_to 'Back', posts_path, class: 'btn btn-secondary mb-3' %>
     <div class="card">
-      <div class="card-body">
+      <div class="card-header">
         <h6 class="card-title mb-0">Editing Post</h6>
+      </div>
+      <div class='card-body'>
         <%= render 'form', post: @post %>
       </div>
       <div class="card-footer">
         <% if @post.published? %>
-          <a href="#" class="btn btn-dark col-12">Unpublish</a>
+          <a href="#" class="btn btn-dark col-12"
+          data-reflex='click->PublisherReflex#unpublish'
+          data-post-id='<%= @post.id %>'>Unpublish</a>
         <% else %>
-          <a href="#" class="btn btn-primary col-12">Publish</a>
+          <a href="#" class="btn btn-primary col-12"
+          data-reflex='click->PublisherReflex#publish'
+          data-post-id='<%= @post.id %>'>Publish</a>
         <% end %>
       </div>
     </div>
@@ -27,6 +33,13 @@
       <% end %>
     </div>
     <div class="card">
+      <div class='card-header text-end'>
+        <% if @post.published? %>
+          <b>Published</b> <%= time_ago_in_words(@post.published_at) %> ago
+        <% else %>
+          Unpublish
+        <% end %>
+      </div>
       <div class="card-body">
         <% @post.elements.each do |element| %>
           <% if element.persisted? %>
