@@ -7,8 +7,18 @@
     }
   }
   .image {
+    text-align: center;
     img {
-      max-width: 100%;
+      max-width: 80%;
+
+    }
+    .delete-btn {
+      position: absolute;
+      right: calc(10% + 38px);
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
   .post-card {
