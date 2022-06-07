@@ -7,13 +7,18 @@
   <%= link_to edit_post_path(post), class: 'text-decoration-none' do %>
     <div class="card mb-3 post-card">
       <div class="card-body row">
-        <div class="col-md-2">
+        <div class="col-md-3">
           <% if post.header_image.present? %>
             <div class="header-img" style="background-image: url(<%= url_for(post.header_image) %>);">
             </div>
           <% end %>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
+          <% if post.published? %>
+            <span class="badge badge-primary mb-3">Publish</span>
+          <% else %>
+            <span class="badge badge-secondary mb-3">Unpublish</span>
+          <% end %>
           <h5 class="card-title text-dark"><span><%= post.title %></span></h5>
           <p class="text-secondary mb-0"><%= post.description %></p>
         </div>
