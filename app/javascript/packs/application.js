@@ -15,10 +15,12 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-import '../stylesheets/application'
 
 require("trix")
 require("@rails/actiontext")
+
+import Sortable from 'sortablejs'
+import '../stylesheets/application'
 
 document.addEventListener('turbolinks:load', () => {
   document.addEventListener('click', () => {
@@ -31,13 +33,16 @@ document.addEventListener('turbolinks:load', () => {
 
   document.addEventListener('click', () => {
     if (!event.target.matches('.cancel')) return;
-
-    // event.preventDefault();
+    // event.preventDefault()
 
     let element = event.target.closest('.paragraph-form')
+    console.log(element)
 
     element.classList.add('d-none')
     element.previousElementSibling.classList.remove('d-none')
   })
+
+  let element = document.getElementById('elements')
+  Sortable.create(elements, {animation: 150 })
 })
 import "controllers"
