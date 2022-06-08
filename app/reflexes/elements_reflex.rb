@@ -5,5 +5,6 @@ class ElementsReflex < ApplicationReflex
       element_row = Element.find(element['id'])
       element_row.update(position: element['position'])
     end
+    @halted = true
   end
 end
