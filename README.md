@@ -14,6 +14,7 @@ Things you may want to cover:
 * Rails version - 6.0.3 
 
 * System dependencies
+`sass-rails` - ~> _5.0_
 
 * Configuration
 ```bundle install```
@@ -34,3 +35,7 @@ _redis_ cache server
 
 * Other
 *Bootstrap*, *Stimulus_reflex*, *Sortable.js*
+
+* Testing
+
+```rake minitest```
