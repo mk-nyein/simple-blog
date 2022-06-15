@@ -1,36 +1,24 @@
 require 'minitest_helper'
 
-# class PostTest < ActiveSupport::TestCase
-#   # test "the truth" do
-#   #   assert true
-#   # end
-# end
-
-describe Post do
-  before do 
+class PostTest < ActiveSupport::TestCase
+  setup do 
     @current_author = Author.first_or_create(email: 'test@mail.com', password: '12345678')
     @post = @current_author.posts.new
   end
 
-  describe 'when creating new post without title' do
-    it 'should fail' do
-      @post.title = ''
-      @post.description = "This is the descripiton"
-      _(@post.valid?).must_equal false
-    end
+  test "post should fail to creat without title" do
+    @post.title = ''
+    @post.description = "This is the descripiton"
+    assert_not @post.save
   end
-  describe 'when creating new post without description' do
-    it 'should fail' do
-      @post.title = 'This is title'
-      @post.description = ""
-      _(@post.valid?).must_equal false
-    end
+  test "post should fail to create without description" do
+    @post.title = 'This is the title'
+    @post.description = ""
+    assert_not @post.save
   end
-  describe 'when creating new post with title and description' do
-    it 'should success' do
-      @post.title = 'This is title'
-      @post.description = "This is the descripiton"
-      _(@post.save).must_equal true
-    end
+  test "post should pass to create with title and description" do
+    @post.title = 'This is the title'
+    @post.description = "This is the descripiton"
+    assert @post.save
   end
 end
