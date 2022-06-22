@@ -1,0 +1,21 @@
+<div class="card post-card">
+  <div class="header-image" style="background-image: url(<%= url_for(@post.header_image) %>)"></div>
+  <div class="card-body">
+    <div class="p-5">
+      <h1 class="card-title text-dark mb-5"><%= @post.title %></h2>
+      <% @post.elements.order(position: :asc).each do |element| %>
+        <% if element.paragraph? %>
+          <div class="content-element mb-4">
+            <%= element.content %>
+          </div>
+        <% elsif element.image? %>
+          <div class="image-element mb-4">
+            <%= image_tag(element.image) %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    
+    <%= link_to 'Back', root_path, class: "btn btn-light mt-auto" %>
+  </div>
+</div>

@@ -19,7 +19,7 @@ require("channels")
 const Trix = require("trix")
 require("@rails/actiontext")
 
-Trix.config.blockAttributes.heading1.tagName = 'h3';
+Trix.config.blockAttributes.heading1.tagName = 'h4';
 
 import Sortable from 'sortablejs'
 import '../stylesheets/application'
