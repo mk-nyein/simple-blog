@@ -11,6 +11,28 @@
   </head>
 
   <body class="bg-light readers <%= controller_name %> <%= action_name %>">
+    <div class="navbar-inner">
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="<%= root_path %>">Home</a>            
+          <% if author_signed_in? %>
+            <ul class="nav navbar-nav   navbar-right">
+              <li><%= link_to 'Log Out', destroy_author_session_path, method: :delete %></li>
+            </ul>
+          <% else %>
+            <ul class="nav navbar-nav pull-right">
+              <li class="me-3">
+                <%= link_to 'Sign In', new_author_session_path %>
+                </li>
+              <li>
+                <%= link_to 'Sign Up', new_author_registration_path %>
+                </li>
+            </ul>
+          <% end %>
+        </div>
+      </nav>
+    </div>
+    
     <div class="container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>

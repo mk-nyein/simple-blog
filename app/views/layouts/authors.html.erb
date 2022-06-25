@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SimpleBlog</title>
+    <title>Create Your Own Blog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
@@ -12,6 +12,18 @@
   </head>
 
   <body class="bg-light authors">
+    <div class="navbar-inner">
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="<%= posts_path %>">Home</a>            
+          <% if author_signed_in? %>
+            <ul class="nav navbar-nav   navbar-right">
+              <li><%= link_to 'Log Out', destroy_author_session_path, method: :delete %></li>
+            </ul>
+          <% end %>
+        </div>
+      </nav>
+    </div>
     <div class="container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
