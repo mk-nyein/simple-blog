@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true, length: 25..250
 
+  acts_as_votable
+
   belongs_to :author
   has_many :elements
 

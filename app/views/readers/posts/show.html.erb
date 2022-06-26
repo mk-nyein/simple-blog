@@ -1,8 +1,29 @@
 <div class="card post-card">
   <div class="header-image" style="background-image: url(<%= url_for(@post.header_image) %>)"></div>
   <div class="card-body">
-    <div class="p-5">
-      <h1 class="card-title text-dark mb-5"><%= @post.title %></h2>
+    <div class="ps-5 pe-5 pt-3 pb-3">
+      <div class="btn-group">
+        <%= link_to root_path, class: "btn btn-outline-info btn-sm" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+           Back
+        <% end %>
+        <%= link_to blog_post_like_path(@post), method: :put, class: "btn btn-outline-success btn-sm" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
+            <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
+          </svg>
+           Upvote <%= @post.get_upvotes.size %>
+        <% end %>
+        <%= link_to blog_post_dislike_path(@post), method: :put, class: "btn btn-outline-dark btn-sm" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+            <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
+          </svg> Upvote <%= @post.get_downvotes.size %>
+        <% end %>
+      </div>
+      <div>
+        <h1 class="card-title text-dark mb-5"><%= @post.title %></h2>
+      </div>
       <% @post.elements.order(position: :asc).each do |element| %>
         <% if element.paragraph? %>
           <div class="content-element mb-4">
