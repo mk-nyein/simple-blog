@@ -17,16 +17,13 @@
           <a class="navbar-brand" href="<%= root_path %>">Home</a>            
           <% if author_signed_in? %>
             <ul class="nav navbar-nav   navbar-right">
+              <li class="me-3"><%= link_to 'Edit Account', edit_author_registration_path %></li>
               <li><%= link_to 'Log Out', destroy_author_session_path, method: :delete %></li>
             </ul>
           <% else %>
             <ul class="nav navbar-nav pull-right">
-              <li class="me-3">
-                <%= link_to 'Sign In', new_author_session_path %>
-                </li>
-              <li>
-                <%= link_to 'Sign Up', new_author_registration_path %>
-                </li>
+              <li class="me-3"><%= link_to 'Sign In', new_author_session_path %></li>
+              <li><%= link_to 'Sign Up', new_author_registration_path %></li>
             </ul>
           <% end %>
         </div>
