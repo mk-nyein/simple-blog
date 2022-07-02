@@ -1,6 +1,6 @@
 require 'minitest_helper'
 
-class ElementsControllerTest < ActionDispatch::IntegrationTest
+class Authors::ElementsControllerTest < ActionDispatch::IntegrationTest
   # setup do
   #   @element = elements(:one)
   # end

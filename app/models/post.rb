@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   acts_as_votable
 
   belongs_to :author
-  has_many :elements
+  has_many :elements, dependent: :destroy
 
   has_one_attached :header_image
   
