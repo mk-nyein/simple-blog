@@ -3,7 +3,7 @@
 one:
   title: MyString
   description: MyText
-  published: false
+  published: true
   published_at: 2022-05-29 12:50:41
   author: one
 
