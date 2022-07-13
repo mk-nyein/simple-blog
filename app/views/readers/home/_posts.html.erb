@@ -1,0 +1,21 @@
+<div class="row">
+  <% data.each do |post| %>
+    <div class="col-md-6 col-lg-4">
+      <div class="card post-card">
+        <% if post.header_image.present? %>
+          <div class="header-image" style="background-image: url(<%= url_for(post.header_image) %>)"></div>
+        <% else %>
+          <div class="header-image" ></div>
+        <% end %>
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title text-dark">
+            <%= post.title %><br/>
+            <small> By <%= post.author.email %> </small>
+          </h5>
+          <p class="card-text"><%= truncate(post.description, length: 150) %></p>
+          <%= link_to 'Read Post', blog_post_path(post), class: "btn btn-light mt-auto" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
