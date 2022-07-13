@@ -43,4 +43,13 @@ class PostTest < ActiveSupport::TestCase
     assert_equal @post_one.published_at, @posts.first.published_at
     assert_equal true, @posts.first.published
   end
+
+  test "should return top three published posts with most votes" do
+    @post_one.upvote_by @current_author
+    @posts = Post.top_three_most_liked
+    assert_equal @post_one.id, @posts.first.id
+    assert_equal @post_one.published_at, @posts.first.published_at
+    assert_equal true, @posts.first.published
+    assert_equal 1, @posts.first.get_upvotes.size
+  end
 end

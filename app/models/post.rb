@@ -16,4 +16,8 @@ class Post < ApplicationRecord
   scope :most_recently_published, -> do
     order(published_at: :desc)
   end
+
+  scope :top_three_most_liked, -> do
+    order(cached_votes_score: :desc).limit(3)
+  end
 end
