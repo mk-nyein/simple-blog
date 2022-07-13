@@ -1,15 +1,29 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
+  title: My String one
+  description: My description for post one with the characters longer than 25
   published: true
   published_at: 2022-05-29 12:50:41
   author: one
 
 two:
-  title: MyString
-  description: MyText
+  title: My String two
+  description: My description for post two with the characters longer than 25
   published: false
   published_at: 2022-05-29 12:50:41
   author: two
+
+three:
+  title: My String three
+  description: My description for post three with the characters longer than 25
+  published: false
+  published_at: 2022-05-29 12:50:41
+  author: one
+
+four:
+  title: My String four
+  description: My description for post four with the characters longer than 25
+  published: true
+  published_at: 2022-05-29 12:50:41
+  author: one
