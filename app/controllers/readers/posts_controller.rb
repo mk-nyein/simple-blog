@@ -2,7 +2,7 @@ module Readers
   class PostsController < ReadersController
     before_action :authenticate_author!, only: ['upvote', 'downvote']
     def show
-      @post = Post.published.find(params[:id])
+      @post = Post.published.find_by(id: params[:id]) || not_found
     end
 
     def upvote

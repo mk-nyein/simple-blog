@@ -1,0 +1,2 @@
+module Readers::PostsHelper
+end
