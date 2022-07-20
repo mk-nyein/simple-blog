@@ -10,7 +10,7 @@
         <div class="card-body d-flex flex-column">
           <h5 class="card-title text-dark">
             <%= post.title %><br/>
-            <small> By <%= post.author.email %> </small>
+            <small> By <%= link_to post.author.username, home_posts_of_member_path(username: post.author.username) %> </small>
           </h5>
           <p class="card-text"><%= truncate(post.description, length: 150) %></p>
           <%= link_to 'Read Post', blog_post_path(post), class: "btn btn-light mt-auto" %>
