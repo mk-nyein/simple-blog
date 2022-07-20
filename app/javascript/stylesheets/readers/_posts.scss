@@ -10,6 +10,27 @@
   }
 
 }
+
+.readers.home.posts_of_member {
+  
+  .post-card {
+    .header-image {
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+    }
+    .image-element {
+      text-align: center;
+      img {
+        max-width: 90%;
+      }
+    }
+    .content-element {
+      background-color: white;
+    }
+  }
+}
+
 .readers.posts.show {
   
   .post-card {
